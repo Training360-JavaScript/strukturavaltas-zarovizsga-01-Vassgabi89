@@ -1,12 +1,54 @@
 <!-- {{ car$ | async | json }} -->
-{{ car | json }}
+
+<!-- próbáltam átírni reaktívra, mert nem ment át a teszten, de már nicns időm -->
+<!-- <div class="container mt-5" *ngIf="car">
+  <div class="row">
+    <form [formGroup]="carFormGroup" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="carId">ID</label>
+        <input type="text" class="form-control" id="carId" name="carId" formControlName='id'>
+      </div>
+      <div class="form-group">
+        <label for="carModel">Model</label>
+        <input type="text" class="form-control" id="carModel" name="carModel" formControlName='model'>
+      </div>
+      <div class="form-group">
+        <label for="carMake">Make</label>
+        <input type="text" class="form-control" id="carMake" name="carMake" formControlName='make'>
+      </div>
+      <div class="form-group">
+        <label for="carYear">Year</label>
+        <input type="text" class="form-control" id="carYear" name="carYear" formControlName='year' pattern="[0-9]{4}">
+      </div>
+      <div class="form-group">
+        <label for="carPrice">Price</label>
+        <input type="text" class="form-control" id="carPrice" name="carPrice" formControlName='price'
+          pattern="[0-9]{3,5}">
+      </div>
+      <div class="form-group">
+        <label for="carStock">Stock</label>
+        <input type="text" class="form-control" id="carStock" name="carStock" formControlName='stock'
+          pattern="^([1-9]|[1-4][0-9]|50)$">
+      </div>
+      <div class="form-group">
+        <label for="carActive">Active</label>
+        <select class="form-control" id="carActive" name="carActive" required>
+          <option [selected]="car.active" value=True>Active</option>
+          <option [selected]="!car.active" value=False>Inactive</option>
+        </select>
+      </div>
+      <button [disabled]="carFormGroup.invalid" type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </div>
+</div> -->
+
 
 <div class="container" *ngIf="car">
   <div class="row">
     <form #carForm="ngForm" (ngSubmit)='onSubmit()'>
       <div class="form-group">
         <label for="carId">ID</label>
-        <input [(ngModel)]="car.id" type="text" class="form-control" id="carId" name="carId" disabled>
+        <input [(ngModel)]="car.id" type="text" class="form-control" id="carId" name="carId" required>
       </div>
       <div class="form-group">
         <label for="carModel">Model</label>

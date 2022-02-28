@@ -38,7 +38,7 @@ export class CarEditorComponent implements OnInit {
     })
   }
 
-  onSubmit(car = this.car): void {
+  onUpdate(car = this.car): void {
       const data = this.cService.update(car).subscribe(
         //datas => console.log(datas)
       )

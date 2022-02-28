@@ -10,10 +10,10 @@ export class AppComponent {
   title = 'drugstore';
 
   constructor(
-    private dService: DrugService
+    //private dService: DrugService
   ) {
-    this.dService.getAll().subscribe(
+    /*this.dService.getAll().subscribe(
       drugs => console.log(drugs)
-    )
+    )*/
   }
 }

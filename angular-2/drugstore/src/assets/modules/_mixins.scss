@@ -6,3 +6,7 @@
     @content
   }
 };
+
+@mixin yellow-background {
+  @content
+};

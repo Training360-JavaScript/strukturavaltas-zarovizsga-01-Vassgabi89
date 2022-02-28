@@ -1,0 +1,46 @@
+<!-- {{ car$ | async | json }} -->
+{{ car | json }}
+
+<div class="container" *ngIf="car">
+  <div class="row">
+    <form #carForm="ngForm" (ngSubmit)='onSubmit()'>
+      <div class="form-group">
+        <label for="carId">ID</label>
+        <input [(ngModel)]="car.id" type="text" class="form-control" id="carId" name="carId" disabled>
+      </div>
+      <div class="form-group">
+        <label for="carModel">Model</label>
+        <input [(ngModel)]="car.model" type="text" class="form-control" id="carModel" name="carModel" required
+          pattern="[A-Z0-9][a-zA-Z0-9 ]{1,14}">
+      </div>
+      <div class="form-group">
+        <label for="carMake">Make</label>
+        <input [(ngModel)]="car.make" type="text" class="form-control" id="carMake" name="carMake" required
+          pattern="[A-Z][a-zA-Z]{2,19}">
+      </div>
+      <div class="form-group">
+        <label for="carYear">Year</label>
+        <input [(ngModel)]="car.year" type="text" class="form-control" id="carYear" name="carYear" required
+          pattern="[0-9]{4}">
+      </div>
+      <div class="form-group">
+        <label for="carPrice">Price</label>
+        <input [(ngModel)]="car.price" type="text" class="form-control" id="carPrice" name="carPrice" required
+          pattern="[0-9]{3,5}">
+      </div>
+      <div class="form-group">
+        <label for="carStock">Stock</label>
+        <input [(ngModel)]="car.stock" type="text" class="form-control" id="carStock" name="carStock" required
+          pattern="[0-9]{2}">
+      </div>
+      <div class="form-group">
+        <label for="carActive">Active</label>
+        <select class="form-control" id="carActive" name="carActive" required>
+          <option [selected]="car.active" value=True>Active</option>
+          <option [selected]="!car.active" value=False>Inactive</option>
+        </select>
+      </div>
+      <button [disabled]="!carForm.form.valid" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
